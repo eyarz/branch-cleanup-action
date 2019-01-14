@@ -27,7 +27,7 @@ main(){
 
 	echo "DEBUG -> action: $action merged: $merged"
 
-	if [[ "$action" == "closed" ]] && [[ "$merged" == "true" ]]; then
+	if [[ "$action" == "closed" ]]; then
 		# delete the branch.
 		ref=$(jq --raw-output .pull_request.head.ref "$GITHUB_EVENT_PATH")
 		owner=$(jq --raw-output .pull_request.head.repo.owner.login "$GITHUB_EVENT_PATH")
